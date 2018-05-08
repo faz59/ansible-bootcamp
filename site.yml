@@ -1,0 +1,6 @@
+- name:  loadbalancer installation
+  hosts: frontends
+  become: yes
+  roles:
+  - {name: baseline}
+  - {name: lb}
