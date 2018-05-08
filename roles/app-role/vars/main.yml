@@ -1,4 +1,2 @@
----
-# vars file for app-role
-
-appserver:     tomcat
+appserver:  tomcat
+webroot:   /usr/share/tomcat/webapps/ROOT
