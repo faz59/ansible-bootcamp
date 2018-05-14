@@ -18,5 +18,12 @@
   hosts: frontends
   become: yes
   roles:
-    - {name: lb, tags: [lb, haproxy]}
+    - { name: lb, tags: [lb, haproxy]}
     - { name: baseline, tags: baseline }
+
+- name: set up app-tier
+  hosts: apps
+  become: yes
+  roles:
+    - { name: app-role, tags:[app, tomcat]}
+    - { name: baseline, tags: baseline}
