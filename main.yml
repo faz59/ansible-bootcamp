@@ -1,6 +1,17 @@
-- name:  loadbalancer installation
-  hosts: frontends
-  become: yes
+---
+
+- name: 3-tier-app config
+  hosts: all
+  gather_facts: false
+  become: true
   roles:
-  - {name: baseline}
-  - {name: lb}
+    - { name: baseline, tags: baseline }
+
+
+  tasks:
+  - name:  loadbalancer installation
+    hosts: frontends
+    gather_facts: false
+    become: yes
+    roles:
+     - {name: lb, tags: lb}
