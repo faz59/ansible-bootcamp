@@ -12,7 +12,7 @@
 - name: tomcat web webroot
   file:
     path: "{{ webroot }}"
-    tate: directory
+    state: directory
 
 - name: setup index.html
   templates:
