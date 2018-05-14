@@ -8,7 +8,6 @@
     - { name: baseline, tags: baseline }
 
 
-  tasks:
   - name:  loadbalancer installation
     hosts: frontends
     gather_facts: false
