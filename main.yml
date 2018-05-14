@@ -25,5 +25,5 @@
   hosts: apps
   become: yes
   roles:
-    - { name: app-role, tags:[app, tomcat]}
+    - { name: app-role, tags: [app, tomcat]}
     - { name: baseline, tags: baseline}
