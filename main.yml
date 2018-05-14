@@ -7,10 +7,15 @@
   roles:
     - { name: baseline, tags: baseline }
 
+  # - name:  loadbalancer installation
+  #   hosts: frontends
+  #   gather_facts: false
+  #   become: yes
+  #   roles:
+  #    - {name: lb, tags: lb}
 
-  - name:  loadbalancer installation
-    hosts: frontends
-    gather_facts: false
-    become: yes
-    roles:
-     - {name: lb, tags: lb}
+- name: setup load-balancer tier
+  hosts: frontends
+  become: yes
+  roles:
+    - {name: lb, tags: [lb, haproxy]}
