@@ -2,12 +2,12 @@
 # tasks file for app-role
 - name: install {{ appserver }}
   yum:
-    name: {{ appserver }}
+    name: "{{ appserver }}"
     state: latest
 
 - name: enable tomcat at webroot
   service:
-    name: {{ appserver }}
+    name: "{{ appserver }}"
 
 - name: tomcat web webroot
   file:
