@@ -17,10 +17,10 @@
 - name: setup index.html
   templates:
     src: index.html.j2
-    dest: "{{webroot}}"
+    dest: "{{ webroot }}"
     mode: 0644
 
 - name: restart appserver
   service:
-    name: "{{appserver}}"
+    name: "{{ appserver }}"
     state: restarted
