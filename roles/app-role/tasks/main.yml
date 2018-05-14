@@ -1,26 +1,27 @@
 ---
-# tasks file for app-role
-- name: install {{ appserver }}
+
+- name: install {{ payload }}
   yum:
-    name: "{{ appserver }}"
+    name: "{{ payload }}"
     state: latest
 
-- name: enable tomcat at webroot
+- name: enable {{ payload }} at boot
   service:
-    name: "{{ appserver }}"
+    name: "{{ payload }}"
+    enabled: yes
 
-- name: tomcat web webroot
+- name: create tomcat default web directory
   file:
-    path: "{{ webroot }}"
+    path: "{{ tomcat_web_root }}"
     state: directory
 
-- name: setup index.html
-  templates:
+- name: copy static index.html to tomcat webroot
+  template:
     src: index.html.j2
-    dest: "{{ webroot }}"
+    dest: "{{ tomcat_web_root }}/index.html"
     mode: 0644
 
-- name: restart appserver
+- name: restart tomcat
   service:
-    name: "{{ appserver }}"
+    name: "{{ payload }}"
     state: restarted
