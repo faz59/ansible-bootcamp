@@ -9,16 +9,16 @@
   service:
     name: {{ appserver }}
 
--name: tomcat web webroot
- file:
-   path: "{{ webroot }}"
-   state: directory
+- name: tomcat web webroot
+  file:
+    path: "{{ webroot }}"
+    tate: directory
 
--name: setup index.html
- templates:
-   src: index.html.j2
-   dest: "{{webroot}}"
-   mode: 0644
+- name: setup index.html
+  templates:
+    src: index.html.j2
+    dest: "{{webroot}}"
+    mode: 0644
 
 - name: restart appserver
   service:
