@@ -1,2 +1,2 @@
 payload:   tomcat
-webroot:   /usr/share/tomcat/webapps/ROOT
+tomcat_web_root:   /usr/share/tomcat/webapps/ROOT
