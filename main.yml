@@ -27,3 +27,9 @@
   roles:
     - { name: app-role, tags: [app, tomcat]}
     - { name: baseline, tags: baseline}
+
+- name: set up db
+  hosts: appdbs
+  become: yes
+  roles:
+    - { name: ANXS.postgresql, tags: dbs}
